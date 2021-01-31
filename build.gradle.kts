@@ -7,7 +7,7 @@ plugins {
 
 object Globals {
     const val grp = "io.github.ytg1234"
-    const val abn = "template"
+    const val abn = "vina"
     const val version = "1.0.0"
 
     const val mcVer = "1.16.5"
@@ -20,7 +20,7 @@ object Globals {
     const val modrinthId = ""
     const val unstable = false
 
-	const val name = "Template"
+	const val name = "Vina"
 }
 
 group = Globals.grp
@@ -30,32 +30,6 @@ java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
-
-// region testmod
-
-sourceSets.create("testmod") {
-    compileClasspath += sourceSets["main"].compileClasspath
-    runtimeClasspath += sourceSets["main"].runtimeClasspath
-}
-
-configurations.getByName("testmodImplementation").extendsFrom(configurations["implementation"])
-
-tasks {
-    register<net.fabricmc.loom.task.RunClientTask>("runTestmodClient") {
-        classpath = sourceSets["testmod"].runtimeClasspath
-    }
-
-    register<net.fabricmc.loom.task.RunServerTask>("runTestmodServer") {
-        classpath = sourceSets["testmod"].runtimeClasspath
-    }
-}
-
-dependencies {
-    val testmodImplementation = configurations.getByName("testmodImplementation")
-    testmodImplementation(sourceSets["main"].output)
-}
-
-// endregion
 
 dependencies {
     minecraft("com.mojang", "minecraft", Globals.mcVer)

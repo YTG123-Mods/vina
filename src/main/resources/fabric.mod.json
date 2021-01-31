@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "id": "template",
+  "id": "vina",
   "version": "${version}",
-  "name": "Template",
-  "description": "",
+  "name": "Vina",
+  "description": "Vina Is Not an Acronym",
   "authors": [
     "YTG1234"
   ],
   "contributors": [],
   "contact": {},
   "license": "LGPL-3.0",
-  "icon": "assets/template/icon.png",
+  "icon": "assets/vina/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
       {
-      	"value": "io.github.ytg1234.template.Template",
+      	"value": "io.github.ytg1234.vina.Vina",
       	"adapter": "kotlin"
       }
     ],
@@ -23,7 +23,7 @@
     "server": []
   },
   "mixins": [
-    "template.mixins.json"
+    "vina.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.10.8",
