@@ -2,7 +2,9 @@
   "required": true,
   "package": "io.github.ytg1234.vina.mixin",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [],
+  "mixins": [
+    "WeightedPressurePlateBlockMixin"
+  ],
   "client": [],
   "server": [],
   "injectors": {

@@ -1,5 +1,5 @@
 plugins {
-	kotlin("jvm") version "1.4.21"
+    kotlin("jvm") version "1.4.21"
     id("fabric-loom") version "0.5-SNAPSHOT"
     `maven-publish`
     id("com.modrinth.minotaur") version "1.1.0"
@@ -14,13 +14,25 @@ object Globals {
     const val yarnBuild = "3"
 
     const val loaderVer = "0.11.1"
-    const val fapiVer = "0.29.4+1.16"
-	const val flkVer = "1.4.21+build.1"
+    const val fapiVer = "0.30.0+1.16"
+    const val flkVer = "1.4.21+build.1"
+
+    const val fapiLapiVer = "1.0.0+8f91dfb63a"
+    const val autoConfVer = "3.3.1"
+    const val mmVer = "1.14.13+build.22"
+    const val cc2Ver = "4.8.3"
+
+    const val dblVer = "24be1a"
 
     const val modrinthId = ""
     const val unstable = false
 
-	const val name = "Vina"
+    const val name = "Vina"
+}
+
+val exc: Action<ExternalModuleDependency> = Action {
+    exclude(group = "net.fabricmc")
+    exclude(group = "net.fabricmc.fabric-api")
 }
 
 group = Globals.grp
@@ -31,13 +43,39 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
+repositories {
+    maven(url = "https://maven.terraformersmc.com/releases") {
+        content {
+            includeGroup("io.github.prospector")
+        }
+    }
+
+    maven(url = "https://jitpack.io/") {
+        content {
+            includeGroup("com.github.Chocohead")
+        }
+    }
+}
+
 dependencies {
+    // MC
     minecraft("com.mojang", "minecraft", Globals.mcVer)
     mappings("net.fabricmc", "yarn", "${Globals.mcVer}+build.${Globals.yarnBuild}", classifier = "v2")
+
+    // FLoader
     modImplementation("net.fabricmc", "fabric-loader", Globals.loaderVer)
 
+    // Fabric and FLK
     modImplementation("net.fabricmc.fabric-api", "fabric-api", Globals.fapiVer)
-	modImplementation("net.fabricmc", "fabric-language-kotlin", Globals.flkVer)
+    modImplementation("net.fabricmc", "fabric-language-kotlin", Globals.flkVer)
+
+    // Config
+    modApi("me.sargunvohra.mcmods", "autoconfig1u", Globals.autoConfVer, dependencyConfiguration = exc)
+    modApi("me.shedaniel.cloth", "config-2", Globals.cc2Ver, dependencyConfiguration = exc)
+    modImplementation("io.github.prospector", "modmenu", Globals.mmVer, dependencyConfiguration = exc)
+
+    // Load Time
+    modRuntime("com.github.Chocohead", "Data-Breaker-Lower", Globals.dblVer)
 }
 
 tasks {
@@ -54,9 +92,9 @@ tasks {
         options.encoding = "UTF-8"
     }
 
-	 withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-		kotlinOptions.jvmTarget = "1.8"
-	 }
+    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+        kotlinOptions.jvmTarget = "1.8"
+    }
 
     register<Jar>("sourcesJar") {
         archiveClassifier.set("sources")

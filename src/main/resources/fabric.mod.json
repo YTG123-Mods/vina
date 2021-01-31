@@ -20,7 +20,13 @@
       }
     ],
     "client": [],
-    "server": []
+    "server": [],
+    "modmenu": [
+      {
+        "value": "io.github.ytg1234.vina.ModMenuIntegration",
+        "adapter": "kotlin"
+      }
+    ]
   },
   "mixins": [
     "vina.mixins.json"
