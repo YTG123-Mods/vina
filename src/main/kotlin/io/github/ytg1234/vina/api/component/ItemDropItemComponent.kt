@@ -4,6 +4,6 @@ import dev.onyxstudios.cca.api.v3.component.Component
 import java.util.UUID
 
 interface ItemDropItemComponent : Component {
-    fun getOwner(): UUID
-    fun isHotbar(): Boolean
+    var owner: UUID
+    var isHotbar: Boolean
 }

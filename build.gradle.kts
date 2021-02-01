@@ -84,6 +84,7 @@ dependencies {
     // CCA
     include(modApi("io.github.onyxstudios.Cardinal-Components-API", "cardinal-components-base", Globals.ccaVer, dependencyConfiguration = exc))
     include(modApi("io.github.onyxstudios.Cardinal-Components-API", "cardinal-components-item", Globals.ccaVer, dependencyConfiguration = exc))
+    include(modApi("io.github.onyxstudios.Cardinal-Components-API", "cardinal-components-level", Globals.ccaVer, dependencyConfiguration = exc))
 
     // Load Time
     modRuntime("com.github.Chocohead", "Data-Breaker-Lower", Globals.dblVer)

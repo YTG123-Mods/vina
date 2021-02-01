@@ -47,7 +47,8 @@
   },
   "custom": {
     "cardinal-components": [
-      "vina:item_drop"
+      "vina:item_drop",
+      "vina:dropped_items"
     ]
   }
 }
