@@ -15,8 +15,8 @@
   "entrypoints": {
     "main": [
       {
-      	"value": "io.github.ytg1234.vina.Vina",
-      	"adapter": "kotlin"
+        "value": "io.github.ytg1234.vina.Vina",
+        "adapter": "kotlin"
       }
     ],
     "client": [],
@@ -24,6 +24,12 @@
     "modmenu": [
       {
         "value": "io.github.ytg1234.vina.ModMenuIntegration",
+        "adapter": "kotlin"
+      }
+    ],
+    "cardinal-components": [
+      {
+        "value": "io.github.ytg1234.vina.Components",
         "adapter": "kotlin"
       }
     ]
@@ -35,5 +41,13 @@
     "fabricloader": ">=0.10.8",
     "fabric": "*",
     "fabric-language-kotlin": "*"
+  },
+  "breaks": {
+    "modmenu": "<1.15.0"
+  },
+  "custom": {
+    "cardinal-components": [
+      "vina:item_drop"
+    ]
   }
 }

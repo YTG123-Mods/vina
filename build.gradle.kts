@@ -19,8 +19,9 @@ object Globals {
 
     const val fapiLapiVer = "1.0.0+8f91dfb63a"
     const val autoConfVer = "3.3.1"
-    const val mmVer = "1.14.13+build.22"
+    const val mmVer = "1.15.0"
     const val cc2Ver = "4.8.3"
+    const val ccaVer = "2.7.10"
 
     const val dblVer = "24be1a"
 
@@ -46,7 +47,13 @@ java {
 repositories {
     maven(url = "https://maven.terraformersmc.com/releases") {
         content {
-            includeGroup("io.github.prospector")
+            includeGroup("com.terraformersmc")
+        }
+    }
+
+    maven(url = "https://dl.bintray.com/ladysnake/libs") {
+        content {
+            includeGroup("io.github.onyxstudios.Cardinal-Components-API")
         }
     }
 
@@ -72,7 +79,11 @@ dependencies {
     // Config
     modApi("me.sargunvohra.mcmods", "autoconfig1u", Globals.autoConfVer, dependencyConfiguration = exc)
     modApi("me.shedaniel.cloth", "config-2", Globals.cc2Ver, dependencyConfiguration = exc)
-    modImplementation("io.github.prospector", "modmenu", Globals.mmVer, dependencyConfiguration = exc)
+    modImplementation("com.terraformersmc", "modmenu", Globals.mmVer, dependencyConfiguration = exc)
+
+    // CCA
+    include(modApi("io.github.onyxstudios.Cardinal-Components-API", "cardinal-components-base", Globals.ccaVer, dependencyConfiguration = exc))
+    include(modApi("io.github.onyxstudios.Cardinal-Components-API", "cardinal-components-item", Globals.ccaVer, dependencyConfiguration = exc))
 
     // Load Time
     modRuntime("com.github.Chocohead", "Data-Breaker-Lower", Globals.dblVer)

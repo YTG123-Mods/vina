@@ -3,7 +3,8 @@
   "package": "io.github.ytg1234.vina.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "WeightedPressurePlateBlockMixin"
+    "WeightedPressurePlateBlockMixin",
+    "PlayerInventoryMixin"
   ],
   "client": [],
   "server": [],
