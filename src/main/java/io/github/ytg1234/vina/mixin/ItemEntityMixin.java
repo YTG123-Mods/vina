@@ -1,6 +1,7 @@
 package io.github.ytg1234.vina.mixin;
 
 import io.github.ytg1234.vina.Components;
+import io.github.ytg1234.vina.VinaKt;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
@@ -20,7 +21,7 @@ public abstract class ItemEntityMixin extends Entity {
 
 	@Override
 	public void remove() {
-		if (!world.isClient) {
+		if (!world.isClient && getStack().getOrCreateTag().contains(VinaKt.MOD_ID + ":owner")) {
 			Components.DROPPED_ITEMS.get(world.getLevelProperties()).addStack(getStack());
 		}
 		super.remove();

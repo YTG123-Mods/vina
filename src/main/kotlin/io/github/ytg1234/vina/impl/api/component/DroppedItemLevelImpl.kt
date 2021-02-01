@@ -17,6 +17,18 @@ class DroppedItemLevelImpl(val props: WorldProperties) : DroppedItemLevel {
         droppedItems = ls.toList()
     }
 
+    override fun removeStack(stack: ItemStack) {
+        val ls = droppedItems.toMutableList()
+        ls.remove(stack)
+        droppedItems = ls.toList()
+    }
+
+    override fun removeStack(index: Int) {
+        val ls = droppedItems.toMutableList()
+        ls.removeAt(index)
+        droppedItems = ls.toList()
+    }
+
     override fun readFromNbt(tag: CompoundTag) {
         val list = mutableListOf<ItemStack>()
         if (tag.contains("$MOD_ID:DroppedItems")) {

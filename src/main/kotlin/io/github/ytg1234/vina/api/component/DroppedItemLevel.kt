@@ -9,4 +9,6 @@ interface DroppedItemLevel : Component {
         @Contract(pure = true) get
 
     fun addStack(stack: ItemStack)
+    fun removeStack(stack: ItemStack)
+    fun removeStack(index: Int)
 }
