@@ -13,7 +13,7 @@ import java.util.Random
 import java.util.stream.Collectors
 
 fun lostItems(self: World, ett: Entity): Boolean {
-    if (!self.isClient && config.godCatsConfig.enabled) {
+    if (!self.isClient && config.godCatsConfig.isEnabled) {
         val random = Random() // Not interrupt the previous one, for RNG manipulation needs
         val bl = (config.godCatsConfig.chanceToReturnLostItem == 1 ||
                 random.nextInt(config.godCatsConfig.chanceToReturnLostItem - 1) < 1) && config.godCatsConfig.chanceToReturnLostItem >= 1
