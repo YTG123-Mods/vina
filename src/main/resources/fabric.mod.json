@@ -3,11 +3,23 @@
   "id": "vina",
   "version": "${version}",
   "name": "VINA",
-  "description": "VINA Is Not an Acronym",
+  "description": "VINA Is Not an Acronym.\n\nSimplySarc is also not a contributor - he just thought of some of the ideas that I implemented in this mod.",
   "authors": [
-    "YTG1234"
+    {
+      "name": "YTG1234",
+      "contact": {
+        "homepage": "https://ytg1234.github.io/"
+      }
+    }
   ],
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "SimplySarc",
+      "contact": {
+        "homepage": "https://youtube.com/channel/UCI4Ppudb5EGHNpIYQPVpKdw"
+      }
+    }
+  ],
   "contact": {
     "homepage": "https://github.com/YTG123-Mods/vina",
     "sources": "https://github.com/YTG123-Mods/vina",
