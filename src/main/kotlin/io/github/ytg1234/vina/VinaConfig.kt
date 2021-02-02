@@ -7,6 +7,7 @@ import me.sargunvohra.mcmods.autoconfig1u.ConfigData
 import me.sargunvohra.mcmods.autoconfig1u.annotation.Config
 import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry.Gui.CollapsibleObject
 import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry.Gui.EnumHandler
+import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry.Gui.Tooltip
 import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
@@ -20,20 +21,35 @@ class VinaConfig : ConfigData {
     @CollapsibleObject
     var godCatsConfig = GodCatsConfig()
 
+    @CollapsibleObject
+    var usefulPolarBearsConfig = UsefulPolarBearsConfig()
+
     class GodCatsConfig {
         var isEnabled = true
 
-        @field:Comment("The chance value of a cat returning a lost item. If set to 1, it happens every time, if set to 2, it happens half the times, etc.")
+        @Comment("The chance value of a cat returning a lost item. If set to 1, it happens every time, if set to 2, it happens half the times, etc.")
+        @Tooltip(count = 3)
         var chanceToReturnLostItem = 5
 
-        @field:Comment("The bias value of prioritizing hotbar items. If it is set to 100, then 1 in 100 non-hotbar items will be ignored when choosing what to gift.")
+        @Comment("The bias value of prioritizing hotbar items. If it is set to 100, then 1 in 100 non-hotbar items will be ignored when choosing what to gift.")
+        @Tooltip(count = 3)
         var hotbarBias = 50
     }
 
     class EntityWeightConfig {
         var isEnabled = true
+
+        @Comment("Consider containers when weighing, i.e. a shulker box's weight will be calculated the same way as with hoppers.")
+        @Tooltip(count = 2)
         var isInventoryAddedToItemWeight = true
+
+        @Comment("If an entity is living, increase its weight by the slowness amplifier it has.")
+        @Tooltip(count = 2)
         var isSlownessAddedToEntityWeight = true
+
+        @Comment("Consider item stack count, i.e. a full stack will be 15 weight and one single item will be 1 weight.")
+        @Tooltip(count = 2)
+        var isStackSizeAddedToItemWeight = true
 
         @EnumHandler(option = EnumHandler.EnumDisplayOption.BUTTON)
         var pressurePlateToReplace = PressurePlate.LIGHT
@@ -41,6 +57,15 @@ class VinaConfig : ConfigData {
         enum class PressurePlate {
             LIGHT, HEAVY
         }
+    }
+
+    class UsefulPolarBearsConfig {
+        var isFleeingEnabled = true
+        var isBreedingEnabled = true
+
+        var breedingChance = 1.0
+        var isHeartShown = true
+        var loveTicks = 2400
     }
 }
 

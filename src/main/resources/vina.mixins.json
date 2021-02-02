@@ -3,10 +3,12 @@
   "package": "io.github.ytg1234.vina.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "WeightedPressurePlateBlockMixin",
-    "PlayerInventoryMixin",
-    "ItemEntityMixin",
-    "CatEntity$SleepWithOwnerGoalMixin"
+    "weight.WeightedPressurePlateBlockMixin",
+    "cats.PlayerInventoryMixin",
+    "cats.ItemEntityMixin",
+    "cats.CatEntity$SleepWithOwnerGoalMixin",
+    "polar.PolarBearEntityMixin",
+    "polar.MobEntityMixin"
   ],
   "client": [],
   "server": [],

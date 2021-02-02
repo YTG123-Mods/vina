@@ -1,4 +1,4 @@
-package io.github.ytg1234.vina.mixin;
+package io.github.ytg1234.vina.mixin.cats;
 
 import java.util.Iterator;
 import java.util.List;

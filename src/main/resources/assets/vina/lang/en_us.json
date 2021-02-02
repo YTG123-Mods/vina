@@ -1,0 +1,32 @@
+{
+  "text.autoconfig.vina.option.entityWeightConfig": "Weighted Pressure Plate",
+  "text.autoconfig.vina.option.entityWeightConfig.isEnabled": "Enable",
+
+  "text.autoconfig.vina.option.entityWeightConfig.isInventoryAddedToItemWeight": "Add Contents to Item Weight",
+  "text.autoconfig.vina.option.entityWeightConfig.isInventoryAddedToItemWeight.@Tooltip[0]": "Consider containers when weighing, i.e.",
+  "text.autoconfig.vina.option.entityWeightConfig.isInventoryAddedToItemWeight.@Tooltip[1]": "a shulker box's weight will be calculated the same way as with hoppers.",
+
+  "text.autoconfig.vina.option.entityWeightConfig.isSlownessAddedToEntityWeight": "Consider Slowness",
+  "text.autoconfig.vina.option.entityWeightConfig.isSlownessAddedToEntityWeight.@Tooltip[0]": "If an entity is living and has slowness,",
+  "text.autoconfig.vina.option.entityWeightConfig.isSlownessAddedToEntityWeight.@Tooltip[1]": "increase its weight by the slowness amplifier it has.",
+
+  "text.autoconfig.vina.option.entityWeightConfig.isStackSizeAddedToItemWeight": "Consider Item Count",
+  "text.autoconfig.vina.option.entityWeightConfig.isStackSizeAddedToItemWeight.@Tooltip[0]": "Consider item stack count, i.e.",
+  "text.autoconfig.vina.option.entityWeightConfig.isStackSizeAddedToItemWeight.@Tooltip[1]": "a full stack will be 15 weight and one single item will be 1 weight.",
+
+  "text.autoconfig.vina.option.entityWeightConfig.pressurePlateToReplace": "Replace Pressure Plate",
+
+
+  "text.autoconfig.vina.option.godCatsConfig": "God Cats",
+  "text.autoconfig.vina.option.godCatsConfig.isEnabled": "Enable",
+
+  "text.autoconfig.vina.option.godCatsConfig.chanceToReturnLostItem": "Chance of Returning Lost Item",
+  "text.autoconfig.vina.option.godCatsConfig.chanceToReturnLostItem.@Tooltip[0]": "The chance value of a cat returning a lost item.",
+  "text.autoconfig.vina.option.godCatsConfig.chanceToReturnLostItem.@Tooltip[1]": "If set to 1, it happens every time,",
+  "text.autoconfig.vina.option.godCatsConfig.chanceToReturnLostItem.@Tooltip[2]": "it happens half the times, etc.",
+
+  "text.autoconfig.vina.option.godCatsConfig.hotbarBias": "Hotbar Bias",
+  "text.autoconfig.vina.option.godCatsConfig.hotbarBias.@Tooltip[0]": "The bias value of prioritizing hotbar items.",
+  "text.autoconfig.vina.option.godCatsConfig.hotbarBias.@Tooltip[1]": "If it is set to 100, then 1 in 100 non-hotbar items",
+  "text.autoconfig.vina.option.godCatsConfig.hotbarBias.@Tooltip[2]": "will be ignored when choosing what to gift."
+}

@@ -1,4 +1,4 @@
-package io.github.ytg1234.vina.mixin;
+package io.github.ytg1234.vina.mixin.weight;
 
 import io.github.ytg1234.vina.VinaConfig;
 import io.github.ytg1234.vina.impl.mixin.WprImpl;

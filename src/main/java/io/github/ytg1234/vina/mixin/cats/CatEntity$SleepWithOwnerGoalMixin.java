@@ -1,4 +1,4 @@
-package io.github.ytg1234.vina.mixin;
+package io.github.ytg1234.vina.mixin.cats;
 
 import io.github.ytg1234.vina.impl.mixin.SlpGlImpl;
 import org.spongepowered.asm.mixin.Mixin;
