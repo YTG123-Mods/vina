@@ -19,7 +19,10 @@ class DroppedItemLevelImpl(val props: WorldProperties) : DroppedItemLevel {
 
     override fun removeStack(stack: ItemStack) {
         val ls = droppedItems.toMutableList()
-        ls.remove(stack)
+        val it = ls.iterator()
+        for (i in it) {
+            if (i.hashCode() == stack.hashCode() || i === stack) it.remove()
+        }
         droppedItems = ls.toList()
     }
 

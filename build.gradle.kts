@@ -19,7 +19,7 @@ object Globals {
 
     const val fapiLapiVer = "1.0.0+8f91dfb63a"
     const val autoConfVer = "3.3.1"
-    const val mmVer = "1.15.0"
+    const val mmVer = "1.16.3"
     const val cc2Ver = "4.8.3"
     const val ccaVer = "2.7.10"
 

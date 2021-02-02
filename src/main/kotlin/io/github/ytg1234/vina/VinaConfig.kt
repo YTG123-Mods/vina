@@ -22,7 +22,7 @@ class VinaConfig : ConfigData {
         var enabled = true
 
         @field:Comment("The chance value of a cat returning a lost item. If set to 1, it happens every time, if set to 2, it happens half the times, etc.")
-        var chanceToReturnLostItem = 1
+        var chanceToReturnLostItem = 5
 
         @field:Comment("The bias value of prioritizing hotbar items. If it is set to 100, then 1 in 100 non-hotbar items will be ignored when choosing what to gift.")
         var hotbarBias = 50
