@@ -12,7 +12,8 @@ import net.minecraft.util.Identifier
 
 object Components : LevelComponentInitializer {
     @JvmField
-    val DROPPED_ITEMS: ComponentKey<DroppedItemLevel> = ComponentRegistry.getOrCreate(Identifier(MOD_ID, "dropped_items"), DroppedItemLevel::class.java)
+    val DROPPED_ITEMS: ComponentKey<DroppedItemLevel> =
+        ComponentRegistry.getOrCreate(Identifier(MOD_ID, "dropped_items"), DroppedItemLevel::class.java)
 
     override fun registerLevelComponentFactories(registry: LevelComponentFactoryRegistry) {
         registry.register(DROPPED_ITEMS, ::DroppedItemLevelImpl)

@@ -7,5 +7,3 @@ This mod just adds a bunch of useful and neat things.
 * Bats can help you escape caves by either (feed them spider eye)
     * Teleporting to surface (unrealistic but easy to implement)
     * Highlighting torches (requires mod clientside)
-* Make Gilded Blackstone useful
-    * New loot table - drop gold block 1%

@@ -23,8 +23,8 @@ public abstract class MobEntityMixin {
 
 	@Inject(method = "<init>(Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/World;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/MobEntity;initGoals()V"))
 	private void addMeGoals(EntityType<? extends MobEntity> type, World world, CallbackInfo ci) {
-		if (((Object) this instanceof AnimalEntity) && !((Object) this instanceof PolarBearEntity) && VinaKt.getConfig().getUsefulPolarBearsConfig().isFleeingEnabled()) {
-			goalSelector.add(1000, new FleeFromPolarBearGoal((AnimalEntity) (Object) this, 1.0));
+		if (((Object) this instanceof AnimalEntity) && !((Object) this instanceof PolarBearEntity) && VinaKt.getConfig().getUsefulPolarBears().isFleeingEnabled()) {
+			goalSelector.add(VinaKt.getConfig().getUsefulPolarBears().getGoalPriority(), new FleeFromPolarBearGoal((AnimalEntity) (Object) this, 1.0));
 		}
 	}
 }

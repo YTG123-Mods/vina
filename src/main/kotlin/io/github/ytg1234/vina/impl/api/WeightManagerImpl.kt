@@ -1,9 +1,9 @@
-package io.github.ytg1234.vina.impl
+package io.github.ytg1234.vina.impl.api
 
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import io.github.ytg1234.vina.MOD_ID
-import net.fabricmc.fabric.api.resource.SimpleResourceReloadListener
+import io.github.ytg1234.vina.api.WeightManager
 import net.minecraft.entity.EntityType
 import net.minecraft.resource.ResourceManager
 import net.minecraft.util.Identifier
@@ -15,7 +15,7 @@ import java.util.Locale
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.Executor
 
-object WeightManager : SimpleResourceReloadListener<Map<EntityType<*>, @Range(from = 0, to = 15) Int>> {
+object WeightManagerImpl : WeightManager {
     override fun getFabricId() = Identifier(MOD_ID, "weight")
 
     @Volatile
@@ -70,5 +70,5 @@ object WeightManager : SimpleResourceReloadListener<Map<EntityType<*>, @Range(fr
         }, executor)
     }
 
-    operator fun get(type: EntityType<*>): @Range(from = 0, to = 15) Int = weightMap[type] ?: 1
+    override operator fun get(type: EntityType<*>): @Range(from = 0, to = 15) Int = weightMap[type] ?: 1
 }

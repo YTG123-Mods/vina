@@ -1,8 +1,8 @@
-package io.github.ytg1234.vina.impl.api
+package io.github.ytg1234.vina.impl.api.trait
 
-import io.github.ytg1234.vina.api.Weighable
+import io.github.ytg1234.vina.api.WeightManager
+import io.github.ytg1234.vina.api.trait.Weighable
 import io.github.ytg1234.vina.config
-import io.github.ytg1234.vina.impl.WeightManager
 import net.minecraft.block.BlockEntityProvider
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ItemEntity
@@ -23,7 +23,7 @@ class EntityWeighable(private val ett: Entity) : Weighable {
             var initialWeight = WeightManager[ett.type]
             if (ett is ItemEntity) {
                 initialWeight = handleItems(ett, initialWeight = initialWeight)
-            } else if (ett is LivingEntity && ett.hasStatusEffect(StatusEffects.SLOWNESS) && config.entityWeightConfig.isSlownessAddedToEntityWeight) {
+            } else if (ett is LivingEntity && ett.hasStatusEffect(StatusEffects.SLOWNESS) && config.entityWeight.isSlownessAddedToEntityWeight) {
                 initialWeight += ett.getStatusEffect(StatusEffects.SLOWNESS)!!.amplifier + 1
             }
             return MathHelper.clamp(initialWeight, 0, 15)
@@ -39,7 +39,7 @@ fun handleItems(vararg items: ItemEntity, initialWeight: Int): Int {
         val ett = items[0]
         if (ett.stack.item is BlockItem && (ett.stack.orCreateTag.contains("BlockEntityTag") || ett.stack.orCreateTag.contains(
                 "Items"
-            )) && config.entityWeightConfig.isInventoryAddedToItemWeight
+            )) && config.entityWeight.isInventoryAddedToItemWeight
         ) {
             initialWeight + calculateRedstoneSignal(
                 fromTagButGood(
@@ -58,7 +58,7 @@ fun handleItems(vararg items: ItemEntity, initialWeight: Int): Int {
                     }
                 )
             )
-        } else if (config.entityWeightConfig.isStackSizeAddedToItemWeight) {
+        } else if (config.entityWeight.isStackSizeAddedToItemWeight) {
             calcFromStacks(ett.stack)
         } else initialWeight
     } else {

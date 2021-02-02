@@ -2,9 +2,9 @@
 
 package io.github.ytg1234.vina.impl.mixin
 
-import io.github.ytg1234.vina.impl.WeightManager
-import io.github.ytg1234.vina.impl.api.EntityWeighable
-import io.github.ytg1234.vina.impl.api.handleItems
+import io.github.ytg1234.vina.api.WeightManager
+import io.github.ytg1234.vina.impl.api.trait.EntityWeighable
+import io.github.ytg1234.vina.impl.api.trait.handleItems
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.ItemEntity

@@ -8,7 +8,8 @@
     "cats.ItemEntityMixin",
     "cats.CatEntity$SleepWithOwnerGoalMixin",
     "polar.PolarBearEntityMixin",
-    "polar.MobEntityMixin"
+    "polar.MobEntityMixin",
+    "LootManagerMixin"
   ],
   "client": [],
   "server": [],

@@ -4,7 +4,7 @@ package io.github.ytg1234.vina.impl.mixin
 
 import io.github.ytg1234.vina.Components
 import io.github.ytg1234.vina.MOD_ID
-import io.github.ytg1234.vina.api.DroppedItem.Companion.fromStack
+import io.github.ytg1234.vina.api.trait.DroppedItem.Companion.fromStack
 import io.github.ytg1234.vina.config
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ItemEntity
@@ -13,10 +13,10 @@ import java.util.Random
 import java.util.stream.Collectors
 
 fun lostItems(self: World, ett: Entity): Boolean {
-    if (!self.isClient && config.godCatsConfig.isEnabled) {
+    if (!self.isClient && config.godCats.isEnabled) {
         val random = Random() // Not interrupt the previous one, for RNG manipulation needs
-        val bl = (config.godCatsConfig.chanceToReturnLostItem == 1 ||
-                random.nextInt(config.godCatsConfig.chanceToReturnLostItem - 1) < 1) && config.godCatsConfig.chanceToReturnLostItem >= 1
+        val bl = (config.godCats.chanceToReturnLostItem == 1 ||
+                random.nextInt(config.godCats.chanceToReturnLostItem - 1) < 1) && config.godCats.chanceToReturnLostItem >= 1
 
         if (bl) {
             var i = 0
@@ -38,9 +38,9 @@ fun lostItems(self: World, ett: Entity): Boolean {
                         return@filter false
                     }
                     if (!fromStack(it).isHotbar()) {
-                        if (config.godCatsConfig.hotbarBias == 1) return@filter false
-                        if (config.godCatsConfig.hotbarBias < 1) return@filter true
-                        return@filter random.nextInt(config.godCatsConfig.hotbarBias - 1) > 0
+                        if (config.godCats.hotbarBias == 1) return@filter false
+                        if (config.godCats.hotbarBias < 1) return@filter true
+                        return@filter random.nextInt(config.godCats.hotbarBias - 1) > 0
                     }
                     true
                 }.collect(Collectors.toList())

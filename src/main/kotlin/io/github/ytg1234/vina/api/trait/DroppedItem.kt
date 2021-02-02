@@ -1,4 +1,4 @@
-package io.github.ytg1234.vina.api
+package io.github.ytg1234.vina.api.trait
 
 import io.github.ytg1234.vina.impl.api.ItemStackDroppedItem
 import net.minecraft.item.ItemStack

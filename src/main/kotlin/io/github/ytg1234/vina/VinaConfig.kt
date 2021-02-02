@@ -16,13 +16,15 @@ import net.fabricmc.api.Environment
 @Config(name = MOD_ID)
 class VinaConfig : ConfigData {
     @CollapsibleObject
-    var entityWeightConfig = EntityWeightConfig()
+    var entityWeight = EntityWeightConfig()
 
     @CollapsibleObject
-    var godCatsConfig = GodCatsConfig()
+    var godCats = GodCatsConfig()
 
     @CollapsibleObject
-    var usefulPolarBearsConfig = UsefulPolarBearsConfig()
+    var usefulPolarBears = UsefulPolarBearsConfig()
+
+    var isGildedLootTableEnabled = true
 
     class GodCatsConfig {
         var isEnabled = true
@@ -61,11 +63,14 @@ class VinaConfig : ConfigData {
 
     class UsefulPolarBearsConfig {
         var isFleeingEnabled = true
-        var isBreedingEnabled = true
+        var isBreedingEnabled = false
 
         var breedingChance = 1.0
         var isHeartShown = true
         var loveTicks = 2400
+
+        var polarBearRange = 20.0
+        var goalPriority = 1000
     }
 }
 

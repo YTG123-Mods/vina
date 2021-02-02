@@ -1,7 +1,7 @@
 package io.github.ytg1234.vina.impl.api
 
 import io.github.ytg1234.vina.MOD_ID
-import io.github.ytg1234.vina.api.DroppedItem
+import io.github.ytg1234.vina.api.trait.DroppedItem
 import net.minecraft.nbt.CompoundTag
 import java.util.UUID
 

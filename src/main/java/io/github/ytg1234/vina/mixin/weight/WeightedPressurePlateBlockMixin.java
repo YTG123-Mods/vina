@@ -22,8 +22,8 @@ public abstract class WeightedPressurePlateBlockMixin extends AbstractPressurePl
 
 	@Inject(method = "getRedstoneOutput(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)I", at = @At("HEAD"), cancellable = true)
 	private void weightStuff(World world, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
-		if (getConfig().getEntityWeightConfig().isEnabled() && this == (
-				getConfig().getEntityWeightConfig().getPressurePlateToReplace() == VinaConfig.EntityWeightConfig.PressurePlate.HEAVY ?
+		if (getConfig().getEntityWeight().isEnabled() && this == (
+				getConfig().getEntityWeight().getPressurePlateToReplace() == VinaConfig.EntityWeightConfig.PressurePlate.HEAVY ?
 				Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE :
 				Blocks.LIGHT_WEIGHTED_PRESSURE_PLATE
 		)) {

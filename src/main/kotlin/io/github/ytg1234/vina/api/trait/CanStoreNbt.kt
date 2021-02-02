@@ -1,4 +1,4 @@
-package io.github.ytg1234.vina.api
+package io.github.ytg1234.vina.api.trait
 
 import net.minecraft.nbt.CompoundTag
 import org.jetbrains.annotations.Contract
