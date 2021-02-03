@@ -9,6 +9,7 @@
     "cats.CatEntity$SleepWithOwnerGoalMixin",
     "polar.PolarBearEntityMixin",
     "polar.MobEntityMixin",
+    "bats.BatEntityMixin",
     "LootManagerMixin"
   ],
   "client": [],
