@@ -10,7 +10,7 @@ import io.github.ytg1234.vina.config
 import net.minecraft.util.Identifier
 import java.io.InputStreamReader
 
-fun addGilded(map: MutableMap<Identifier, JsonElement>) {
+internal fun addGilded(map: MutableMap<Identifier, JsonElement>) {
     if (config.isGildedLootTableEnabled) {
         (Vina::class.java.classLoader
             .getResourceAsStream("loader/gilded_blackstone.json")

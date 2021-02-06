@@ -20,7 +20,7 @@ import net.minecraft.util.math.ChunkPos
 import net.minecraft.world.Heightmap
 import java.util.EnumSet
 
-fun BatEntity.interactMob(player: PlayerEntity, hand: Hand): ActionResult? {
+internal fun BatEntity.interactMob(player: PlayerEntity, hand: Hand): ActionResult? {
     if (player.getStackInHand(hand).item === Items.SPIDER_EYE) {
         if (!world.isClient) {
             val serverPlayer = player as ServerPlayerEntity

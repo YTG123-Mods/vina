@@ -12,7 +12,7 @@ import net.minecraft.world.World
 import java.util.Random
 import java.util.stream.Collectors
 
-fun lostItems(self: World, ett: Entity): Boolean {
+internal fun lostItems(self: World, ett: Entity): Boolean {
     if (!self.isClient && config.godCats.isEnabled) {
         val random = Random() // Not interrupt the previous one, for RNG manipulation needs
         val bl = (config.godCats.chanceToReturnLostItem == 1 ||

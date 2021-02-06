@@ -17,7 +17,7 @@ import net.minecraft.util.math.MathHelper
 import org.jetbrains.annotations.Range
 import kotlin.math.min
 
-class EntityWeighable(private val ett: Entity) : Weighable {
+internal class EntityWeighable(private val ett: Entity) : Weighable {
     override val weight: @Range(from = 0, to = 15) Int
         get() {
             var initialWeight = WeightManager[ett.type]
@@ -30,7 +30,7 @@ class EntityWeighable(private val ett: Entity) : Weighable {
         }
 }
 
-fun handleItems(vararg items: ItemEntity, initialWeight: Int): Int {
+internal fun handleItems(vararg items: ItemEntity, initialWeight: Int): Int {
     fun calcFromStacks(vararg stacks: ItemStack): Int {
         return initialWeight + calculateRedstoneSignal(DefaultedList.copyOf(ItemStack.EMPTY, *stacks))
     }

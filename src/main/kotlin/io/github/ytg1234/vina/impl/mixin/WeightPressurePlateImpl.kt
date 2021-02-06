@@ -13,7 +13,7 @@ import net.minecraft.util.math.Box
 import net.minecraft.util.math.MathHelper.clamp
 import net.minecraft.world.World
 
-fun weigh(world: World, pos: BlockPos, box: Box): Int {
+internal fun weigh(world: World, pos: BlockPos, box: Box): Int {
     val entities = world.getNonSpectatingEntities(Entity::class.java, box.offset(pos))
     if (entities.isEmpty()) return 0
     val weightList = if (entities.all { it is ItemEntity }) listOf(

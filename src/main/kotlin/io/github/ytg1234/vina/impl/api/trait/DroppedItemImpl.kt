@@ -5,7 +5,7 @@ import io.github.ytg1234.vina.api.trait.DroppedItem
 import net.minecraft.nbt.CompoundTag
 import java.util.UUID
 
-class ItemStackDroppedItem(private var owner: UUID, private var isHotbar: Boolean) : DroppedItem {
+internal class ItemStackDroppedItem(private var owner: UUID, private var isHotbar: Boolean) : DroppedItem {
     override fun getOwner() = owner
 
     override fun isHotbar() = isHotbar

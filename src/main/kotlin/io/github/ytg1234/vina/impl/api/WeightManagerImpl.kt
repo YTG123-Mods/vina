@@ -15,7 +15,7 @@ import java.util.Locale
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.Executor
 
-object WeightManagerImpl : WeightManager {
+internal object WeightManagerImpl : WeightManager {
     override fun getFabricId() = Identifier(MOD_ID, "weight")
 
     @Volatile

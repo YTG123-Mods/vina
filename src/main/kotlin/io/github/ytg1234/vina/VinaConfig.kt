@@ -24,6 +24,9 @@ class VinaConfig : ConfigData {
     @CollapsibleObject
     var usefulPolarBears = UsefulPolarBearsConfig()
 
+    @CollapsibleObject
+    var reenchConfig = ReenchConfig()
+
     var isGildedLootTableEnabled = true
 
     class GodCatsConfig {
@@ -71,6 +74,13 @@ class VinaConfig : ConfigData {
 
         var polarBearRange = 20.0
         var goalPriority = 1000
+    }
+
+    class ReenchConfig {
+        var isEnabled = true
+        var isEnchantBook = false
+        var maxAllowedBookshelves = 15
+        var isLevelOverrideWhenGreater = true
     }
 }
 

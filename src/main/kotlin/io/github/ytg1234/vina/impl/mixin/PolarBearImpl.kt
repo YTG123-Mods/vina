@@ -14,13 +14,13 @@ import net.minecraft.util.math.Box
 import net.minecraft.world.World
 import java.util.function.Consumer
 
-fun AnimalEntity.initGoals(s: GoalSelector) {
+internal fun AnimalEntity.initGoals(s: GoalSelector) {
     if (config.usefulPolarBears.isBreedingEnabled) {
         s.add(3, AnimalMateGoal(this, config.usefulPolarBears.breedingChance))
     }
 }
 
-fun Entity.onKilledOther(
+internal fun Entity.onKilledOther(
     world: World,
     ett: LivingEntity,
     breedingAge: Int,
@@ -41,7 +41,7 @@ fun Entity.onKilledOther(
     }
 }
 
-fun LivingEntity.tick(
+internal fun LivingEntity.tick(
     world: World,
     loveTicks: Int,
     x: Double,

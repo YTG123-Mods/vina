@@ -7,7 +7,7 @@ import net.minecraft.nbt.CompoundTag
 import net.minecraft.nbt.ListTag
 import net.minecraft.world.WorldProperties
 
-class DroppedItemLevelImpl(val props: WorldProperties) : DroppedItemLevel {
+internal class DroppedItemLevelImpl(val props: WorldProperties) : DroppedItemLevel {
     override var droppedItems: List<ItemStack> = listOf()
         private set
 
