@@ -22,6 +22,8 @@ object Globals {
     const val mmVer = "1.16.3"
     const val cc2Ver = "4.8.3"
     const val ccaVer = "2.7.10"
+    const val libGuiVer = "3.3.3+1.16.5"
+    const val khasmVer = "2.1.0"
 
     const val dblVer = "24be1a"
 
@@ -62,6 +64,24 @@ repositories {
             includeGroup("com.github.Chocohead")
         }
     }
+
+    maven(url = "https://server.bbkr.space/artifactory/libs-release") {
+        content {
+            includeGroup("io.github.cottonmc")
+        }
+    }
+
+    maven(url = "https://maven.hackery.site/") {
+        content {
+            includeGroup("codes.som.anthony")
+        }
+    }
+
+    maven(url = "https://maven.concern.i.ng/") {
+        content {
+            includeGroup("khasm")
+        }
+    }
 }
 
 dependencies {
@@ -83,8 +103,14 @@ dependencies {
 
     // CCA
     include(modApi("io.github.onyxstudios.Cardinal-Components-API", "cardinal-components-base", Globals.ccaVer, dependencyConfiguration = exc))
-    include(modApi("io.github.onyxstudios.Cardinal-Components-API", "cardinal-components-item", Globals.ccaVer, dependencyConfiguration = exc))
     include(modApi("io.github.onyxstudios.Cardinal-Components-API", "cardinal-components-level", Globals.ccaVer, dependencyConfiguration = exc))
+
+    // GUI
+    include(modImplementation("io.github.cottonmc", "LibGui", Globals.libGuiVer))
+
+    // Khasm (not really lol)
+    compileOnly("codes.som.anthony", "koffee", "+")
+    modCompileOnly("khasm", "khasm", Globals.khasmVer) { isTransitive = false }
 
     // Load Time
     modRuntime("com.github.Chocohead", "Data-Breaker-Lower", Globals.dblVer)
@@ -164,9 +190,5 @@ publishing {
                 builtBy(tasks.remapSourcesJar)
             }
         }
-    }
-
-    repositories {
-        if (System.getenv("MAVEN_REPO") != null) maven(url = System.getenv("MAVEN_REPO"))
     }
 }

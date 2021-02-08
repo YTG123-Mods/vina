@@ -1,11 +1,10 @@
 @file:JvmName("PIImpl")
 
-package io.github.ytg1234.vina.impl.mixin
+package io.github.ytg1234.vina.impl.mixin.cats
 
 import io.github.ytg1234.vina.impl.api.ItemStackDroppedItem
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
-import org.jetbrains.annotations.ApiStatus
 
 internal fun transformStack(player: PlayerEntity, i: Int, stack: ItemStack) {
     if (!player.world.isClient) {

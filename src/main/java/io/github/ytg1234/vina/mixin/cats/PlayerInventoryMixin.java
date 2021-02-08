@@ -3,7 +3,7 @@ package io.github.ytg1234.vina.mixin.cats;
 import java.util.Iterator;
 import java.util.List;
 
-import io.github.ytg1234.vina.impl.mixin.PIImpl;
+import io.github.ytg1234.vina.impl.mixin.cats.PIImpl;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

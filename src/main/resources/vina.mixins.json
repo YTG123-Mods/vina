@@ -15,6 +15,7 @@
     "reench.EnchantmentHelperMixin",
     "reench.EnchantmentScreenHandlerMixin",
     "reench.ItemStackMixin",
+    "armour.ArmorStandEntityMixin",
     "LootManagerMixin"
   ],
   "client": [],

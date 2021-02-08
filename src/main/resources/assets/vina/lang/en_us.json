@@ -28,5 +28,8 @@
   "text.autoconfig.vina.option.godCats.hotbarBias": "Hotbar Bias",
   "text.autoconfig.vina.option.godCats.hotbarBias.@Tooltip[0]": "The bias value of prioritizing hotbar items.",
   "text.autoconfig.vina.option.godCats.hotbarBias.@Tooltip[1]": "If it is set to 100, then 1 in 100 non-hotbar items",
-  "text.autoconfig.vina.option.godCats.hotbarBias.@Tooltip[2]": "will be ignored when choosing what to gift."
+  "text.autoconfig.vina.option.godCats.hotbarBias.@Tooltip[2]": "will be ignored when choosing what to gift.",
+
+  "text.vina.screen.as.title": "Armor Stand Customization"
 }
+

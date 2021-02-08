@@ -4,7 +4,7 @@ package io.github.ytg1234.vina.impl.mixin
 
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup
 import net.minecraft.entity.damage.DamageSource
-import net.minecraft.entity.passive.BatEntity
+import net.minecraft.entity.mob.AmbientEntity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Items
 import net.minecraft.network.packet.s2c.play.PlayerPositionLookS2CPacket
@@ -20,14 +20,14 @@ import net.minecraft.util.math.ChunkPos
 import net.minecraft.world.Heightmap
 import java.util.EnumSet
 
-internal fun BatEntity.interactMob(player: PlayerEntity, hand: Hand): ActionResult? {
+internal fun interactMob(ambientEntity: AmbientEntity, player: PlayerEntity, hand: Hand): ActionResult? {
     if (player.getStackInHand(hand).item === Items.SPIDER_EYE) {
-        if (!world.isClient) {
+        if (!ambientEntity.world.isClient) {
             val serverPlayer = player as ServerPlayerEntity
-            for (playerEntity in PlayerLookup.tracking(this)) {
-                world.playSoundFromEntity(
+            for (playerEntity in PlayerLookup.tracking(ambientEntity)) {
+                ambientEntity.world.playSoundFromEntity(
                     playerEntity,
-                    this,
+                    ambientEntity,
                     SoundEvents.ENTITY_WOLF_PANT,
                     SoundCategory.AMBIENT,
                     1f,
@@ -35,8 +35,8 @@ internal fun BatEntity.interactMob(player: PlayerEntity, hand: Hand): ActionResu
                 )
             }
             val bp = serverPlayer.blockPos
-            val teleBp = BlockPos(bp.x, world.getTopY(Heightmap.Type.WORLD_SURFACE, bp.x, bp.z) + 1, bp.z)
-            (world as ServerWorld).chunkManager.addTicket(
+            val teleBp = BlockPos(bp.x, ambientEntity.world.getTopY(Heightmap.Type.WORLD_SURFACE, bp.x, bp.z) + 1, bp.z)
+            (ambientEntity.world as ServerWorld).chunkManager.addTicket(
                 ChunkTicketType.POST_TELEPORT,
                 ChunkPos(teleBp),
                 1,
@@ -52,11 +52,11 @@ internal fun BatEntity.interactMob(player: PlayerEntity, hand: Hand): ActionResu
             )
             serverPlayer.getStackInHand(hand).decrement(1)
 
-            if (serverPlayer.isCreative || !isInvulnerable) {
-                damage(DamageSource.player(serverPlayer), Float.MAX_VALUE)
+            if (serverPlayer.isCreative || !ambientEntity.isInvulnerable) {
+                ambientEntity.damage(DamageSource.player(serverPlayer), Float.MAX_VALUE)
             }
         }
-        return ActionResult.success(world.isClient)
+        return ActionResult.success(ambientEntity.world.isClient)
     }
     return null
 }

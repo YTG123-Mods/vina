@@ -1,6 +1,6 @@
 package io.github.ytg1234.vina.mixin.cats;
 
-import io.github.ytg1234.vina.impl.mixin.SlpGlImpl;
+import io.github.ytg1234.vina.impl.mixin.cats.SlpGlImpl;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;

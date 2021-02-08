@@ -1,6 +1,6 @@
 @file:JvmName("SlpGlImpl")
 
-package io.github.ytg1234.vina.impl.mixin
+package io.github.ytg1234.vina.impl.mixin.cats
 
 import io.github.ytg1234.vina.Components
 import io.github.ytg1234.vina.MOD_ID
