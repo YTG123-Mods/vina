@@ -1,6 +1,15 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath("org.jfrog.buildinfo:build-info-extractor-gradle:4.+")
+	}
+}
+
 plugins {
     kotlin("jvm") version "1.4.30"
-    id("fabric-loom") version "0.5-SNAPSHOT"
+    id("fabric-loom") version "0.6-SNAPSHOT"
     `maven-publish`
     id("com.modrinth.minotaur") version "1.1.0"
 }
@@ -8,16 +17,15 @@ plugins {
 object Globals {
     const val grp = "io.github.ytg1234"
     const val abn = "vina"
-    const val version = "1.0.0"
+    const val version = "0.1.0-SNAPSHOT"
 
     const val mcVer = "1.16.5"
-    const val yarnBuild = "3"
+    const val yarnBuild = "5"
 
-    const val loaderVer = "0.11.1"
-    const val fapiVer = "0.30.0+1.16"
+    const val loaderVer = "0.11.2"
+    const val fapiVer = "0.31.0+1.16"
     const val flkVer = "1.4.30+build.2"
 
-    const val fapiLapiVer = "1.0.0+8f91dfb63a"
     const val autoConfVer = "3.3.1"
     const val mmVer = "1.16.3"
     const val cc2Ver = "4.8.3"
@@ -81,6 +89,13 @@ repositories {
         content {
             includeGroup("khasm")
         }
+    }
+
+    maven("https://maven.shedaniel.me/") {
+		content {
+			includeGroup("me.sargunvohra.mcmods")
+			includeGroup("me.shedaniel.cloth")
+		}
     }
 }
 
@@ -170,25 +185,46 @@ tasks {
 
     register("allPublish") {
         dependsOn(build)
-        dependsOn(publish)
+        dependsOn(project.tasks.getByName("artifactoryPublish"))
         dependsOn(project.tasks.getByName("publishModrinth"))
-        publish.get().mustRunAfter(build)
+        
+        project.tasks.getByName("artifactoryPublish").mustRunAfter(build)
         project.tasks.getByName("publishModrinth").mustRunAfter(publish)
+    }
+
+    withType<Wrapper> {
+		gradleVersion = "6.8.3"
+		distributionType = Wrapper.DistributionType.ALL
     }
 }
 
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
-            artifact(tasks.jar) {
-                builtBy(tasks.remapJar)
-            }
+			groupId = Globals.grp
+            artifactId = Globals.abn
+            version = Globals.version
+
             artifact("${project.buildDir.absolutePath}/libs/${Globals.abn}-${Globals.version}.jar") {
                 builtBy(tasks.remapJar)
             }
-            artifact(tasks.getByName("sourcesJar")) {
+
+            artifact("${project.buildDir.absolutePath}/libs/${Globals.abn}-${Globals.version}-dev.jar") {
+                classifier = "named"
+                builtBy(tasks.remapJar)
+            }
+
+            artifact("${project.buildDir.absolutePath}/libs/${Globals.abn}-${Globals.version}-sources-dev.jar") {
+                classifier = "sources-named"
+                builtBy(tasks.remapSourcesJar)
+            }
+
+            artifact("${project.buildDir.absolutePath}/libs/${Globals.abn}-${Globals.version}-sources.jar") {
+                classifier = "sources"
                 builtBy(tasks.remapSourcesJar)
             }
         }
     }
 }
+
+apply(from = "https://raw.githubusercontent.com/YTG1234/scripts/main/scripts/gradle/artifactory.gradle")
